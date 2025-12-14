@@ -1,0 +1,283 @@
+/* ==================================== */
+/* 1. 基本設定とレイアウトリセット */
+/* ==================================== */
+body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0; /* 全体背景色 */
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.2s;
+}
+
+.red {
+    color: #a00; /* 赤色テキスト */
+}
+
+/* サイト全体を中央に配置する固定幅コンテナ */
+#wrapper {
+    width: 1024px; /* 全体の固定幅 */
+    margin: 0 auto;
+    background-color: #fff;
+}
+
+/* --- 1. ヘッダーエリア --- */
+#header {
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.header-inner {
+    width: 1024px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.header-logo {
+    width: 380px;
+    padding-left: 10px;
+}
+
+.header-logo a {
+    display: flex;
+    align-items: flex-start;
+    color: #333;
+}
+
+.header-logo .logo-img {
+    height: 60px; /* ロゴのサイズ調整 */
+    margin-right: 10px;
+}
+
+.header-logo .address {
+    font-size: 12px;
+    line-height: 1.4;
+    color: #666;
+    margin: 0;
+}
+
+.header-info {
+    width: 600px;
+    display: flex;
+    justify-content: flex-end; /* 右端に寄せる */
+    gap: 15px;
+}
+
+.info-time {
+    border: 2px solid #a00;
+    padding: 5px 10px;
+    background-color: #fffaf0;
+    text-align: center;
+}
+
+.info-time h6 {
+    margin: 0 0 3px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.info-time p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.info-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.info-contact .tel {
+    font-size: 24px;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 5px;
+}
+.info-contact .mail {
+    margin-bottom: 5px;
+}
+
+.info-search input {
+    padding: 3px;
+    border: 1px solid #ccc;
+}
+
+.info-search button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 4px 8px;
+    cursor: pointer;
+}
+
+.info-search .map-link {
+    margin-left: 10px;
+    color: #a00;
+    font-weight: bold;
+}
+
+/* --- 2. グローバルナビゲーション --- */
+#g_nav {
+    background-color: #333;
+}
+
+#g_nav ul {
+    list-style: none;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    width: 1024px;
+    justify-content: space-around;
+}
+
+#g_nav a {
+    display: block;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#g_nav a:hover {
+    background-color: #a00;
+}
+
+/* --- 3. 相場・新着情報エリア（3カラム） --- */
+#container_notice {
+    width: 1024px;
+    margin: 15px auto;
+    display: flex;
+    gap: 10px;
+}
+
+.notice-column {
+    padding: 10px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    background-color: #fff;
+}
+
+/* Flex比率で幅を決定 (元サイトの構造に近づける) */
+.tatene {
+    flex: 1.5; /* 相場情報 */
+    max-width: 250px;
+}
+
+.news {
+    flex: 3; /* 新着情報（中央の幅広） */
+    min-width: 480px;
+}
+
+.calendar {
+    flex: 1; /* カレンダー */
+    max-width: 200px;
+    text-align: center;
+}
+
+.tatene h2, .news-header {
+    border-bottom: 2px solid #a00;
+    padding-bottom: 5px;
+    margin-top: 0;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.news-list {
+    height: 145px;
+    overflow-y: scroll; /* 新着情報のスクロールを再現 */
+    padding-right: 10px;
+    font-size: 13px;
+}
+.news-list p {
+    margin: 5px 0;
+    line-height: 1.4;
+}
+
+.calendar-img {
+    display: block;
+    height: 50px;
+    line-height: 50px;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* --- 4. サイドバーとメインコンテンツエリア --- */
+#container_main {
+    width: 1024px;
+    margin: 0 auto;
+    display: flex;
+    gap: 10px;
+    padding-bottom: 20px;
+    padding-top: 5px;
+}
+
+#sidebar {
+    width: 225px; /* 左サイドバーの固定幅 */
+    box-sizing: border-box;
+}
+
+#main_content {
+    flex-grow: 1; /* 残りの幅をすべて使用 */
+    box-sizing: border-box;
+}
+
+/* サイドバー内部 */
+.side-banners img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 5px;
+    border: none;
+    padding: 0;
+}
+.side-banners a {
+    display: block;
+}
+
+#side_nav {
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #fff;
+    margin-top: 10px;
+}
+
+#side_nav h2 {
+    font-size: 16px;
+    color: #a00;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 5px;
+    margin-top: 0;
+}
+
+#side_nav a {
+    display: block;
+    padding: 5px 0 5px 10px;
+    border-bottom: 1px dotted #eee;
+    margin-top: 3px;
+    font-size: 14px;
+}
+
+#side_nav a:hover {
+    background-color: #f5f5f5;
+    color: #a00;
+}
+
+/* メインコンテンツ内部 */
+#big_customer img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin-bottom: 3px; /* バナー間の隙間 */
+}
